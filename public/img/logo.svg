@@ -1,0 +1,13 @@
+<svg viewbox="0 0 400 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .logo-text{
+            fill: blue;
+            font-size: 40px;
+            font-family: Trebuchet MS;
+        }
+
+    </style>
+    <g class="logo-text">
+        <text x="0" y="30">Morrowind Fansite</text>
+    </g>
+</svg>

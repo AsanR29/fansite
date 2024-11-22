@@ -1,0 +1,11 @@
+mixin ScribCard(scrib)
+    //- var size_height = "h-32";
+    -   const sizeClasses = { height: "h-32", width: "w-32", };
+    div(class="flex items-center rounded-lg bg-white shadow-lg overflow-hidden")
+        img(class=sizeClasses.height + " " + sizeClasses.width + " flex-shrink-0 object-cover object-center", src=scrib.imageUrl, alt=scrib.imageAlt)
+        div(class="px-6 py-4")
+            h3(class="text-lg font-semibold text-gray-800") #{scrib.city}
+
+            p(class="text-gray-600") $#{scrib.averagePrice} / night average
+            div(class="mt-4")
+                a(href="#", class="text-indigo-600 hover:text-indigo-500 font-semibold text-sm") Explore #{scrib.propertyCount} properties
