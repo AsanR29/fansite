@@ -1,0 +1,99 @@
+mixin resident_table_l1(master)
+    div(class=master.container_classes)
+        - var i = -1;
+        each element in master.elements
+            - i += 1;
+            case (master.types[i])
+                when 0
+                    h4(class=element.header_classes) #{element.header_text}
+                when 1
+                    table(class=element.table_classes)
+                        tbody 
+                            - var hi = 0;
+                            each record in element.records 
+                                if(hi == 0)
+                                    tr(class=element.row_header_classes)
+                                        each column in record.columns 
+                                            th(class=element.column_header_classes[hi] +" "+column.classes) #{column.content}
+                                            - ++hi;
+                                else
+                                    tr(class=record.classes)
+                                        each column in record.columns
+                                            td(class=column.classes) #{column.content}
+                when 2
+                    div(class=element.classes)
+                        span Affection: 
+                            - var affection = element.affection*21.225;
+                            img(src="../svgs/stars_full.svg" style="display:inline-block; height:20px; width:"+affection + "px; object-fit: cover; object-position: 0% 0;")
+                when 3 
+                    div(class=element.classes)
+                        a(href="/balmora/" + element.affection, class="link text-blue-500") Read more
+
+mixin resident_table_l2(master)
+    div(class=master.container_classes)
+        - var i = -1;
+        each element in master.elements
+            - i += 1;
+            case (master.types[i])
+                when 0
+                    h4(class=element.header_classes) #{element.header_text}
+                when 1
+                    table(class=element.table_classes)
+                        tbody 
+                            - var hi = 0;
+                            each record in element.records 
+                                if(hi == 0)
+                                    tr(class=element.row_header_classes)
+                                        each column in record.columns 
+                                            th(class=element.column_header_classes[hi] +" "+column.classes) #{column.content}
+                                            - ++hi;
+                                else
+                                    tr(class=record.classes)
+                                        each column in record.columns
+                                            td(class=column.classes) #{column.content}
+                when 2
+                    div(class=element.classes)
+                        span Affection: 
+                            - var affection = element.affection*21.225;
+                            img(src="../svgs/stars_full.svg" style="display:inline-block; height:20px; width:"+affection + "px; object-fit: cover; object-position: 0% 0;")
+                when 3
+                    div(class=element.classes)
+                        a(href="/balmora/" + element.affection + "/edit")
+                            button EDIT 
+                        span(style="display:inline-block; width:1rem")
+                        form(style="display: inline" method="post", action="/balmora/" + element.affection + "?_method=DELETE")
+                            input(type="submit" value="DELETE")
+
+mixin resident_table_l3(master)
+    div(class=master.container_classes)
+        - var i = -1;
+        - var k = 0;
+        each element in master.elements
+            - i += 1;
+            case (master.types[i])
+                when 0
+                    h4(class=element.header_classes) #{element.header_text}
+                when 1
+                    table(class=element.table_classes)
+                        tbody 
+                            - var hi = 0;
+                            each record in element.records 
+                                if(hi == 0)
+                                    tr(class=element.row_header_classes)
+                                        th(class=element.column_header_classes[hi] +" "+record.columns[0].classes) #{record.columns[0].content}
+                                        - ++hi;
+                                        th(class=element.column_header_classes[hi] +" "+record.columns[0].classes)
+                                            input(name=master.elements[2].names[k] class="table-header-normalise" value=record.columns[1].content class=record.columns[1].classes)
+                                            - ++k;
+                                        - ++hi;
+                                else
+                                    tr(class=record.classes)
+                                        td(class=element.column_header_classes[hi] +" "+record.columns[0].classes) #{record.columns[0].content}
+                                        td(class=element.column_header_classes[hi] +" "+record.columns[1].classes)
+                                            input(name=master.elements[2].names[k] value=record.columns[1].content class=record.columns[1].classes)
+                                            - ++k;
+                when 3
+                    div(class=element.classes)
+                        input(type="submit" value="SAVE")
+                when 4
+                    //nothing

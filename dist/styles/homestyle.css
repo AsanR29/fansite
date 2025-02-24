@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    font-family: "Morrowind";
-}
 .hello {
     color:red;
 }
@@ -18,25 +15,6 @@ body{
 }
 .border-b-1{
     border-bottom-width: 1px;
-}
-
-@font-face {
-    font-family: "Morrowind";
-    src: url("fonts/MagicCardsNormal.ttf") format("truetype");
-}
-.brand-font{
-    font-family: "Morrowind";
-}
-
-.col-w-25{
-    width: 25%;
-}
-.col-w-75{
-    width: 75%;
-}
-.table-header-normalise{
-    font-weight: 400;   /** normal please **/
-    text-align:left;
 }
 
 @layer components {

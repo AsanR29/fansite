@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1 #{title}
+  if typeof messages != "undefined"
+    include flash-messages.pug 
+    +flash-messages(messages)
+  a(href="/balmora/southwall") Go to the South Wall
+  br
+  a(href="/balmora/add") Add new citizen
+  br
+  a(href="/") return
+  div(class="bg-brand-dark mt-6 grid gap-6 lg:grid-cols-2 xl:grid-cols-3 ")
+    include resident_table.pug
+    div 
+      each master in tables
+        +resident_table_l1(master)

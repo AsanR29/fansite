@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 #{title}
+  if typeof messages != "undefined"
+    include flash-messages.pug 
+    +flash-messages(messages)
+
+  a(href="/balmora") return
+  div(class="bg-brand-dark mt-6 grid gap-6 lg:grid-cols-2 xl:grid-cols-3 ")
+    include resident_table.pug
+    +resident_table_l2(master)

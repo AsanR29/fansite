@@ -1,8 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    'public/*/*.css',
-    'public/styles/blah.css'
+    'public/styles/*.css',
+    'views/*.pug',
+    'src/*.pug',
+    'poop.html',
+    'views/homepage.pug'
   ],
   theme: {
     extend: {
@@ -15,7 +18,7 @@ module.exports = {
         }
       },
       fontFamily: {
-        headline: "Poppins, sans-serif",
+        headline: "Morrowind",  //, century gothic, Sans serif
       }
     },
   },

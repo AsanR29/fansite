@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    h1 #{title}
+    a(href="/balmora/" + charter._id) return
+  
+    div(class="bg-brand-dark mt-6 grid gap-6 lg:grid-cols-2 xl:grid-cols-3 ")
+        include resident_table.pug
+        form(method="post", action="/balmora/" + master.elements[1].affection + "?_method=PUT")
+            +resident_table_l3(master)

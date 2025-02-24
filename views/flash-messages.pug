@@ -1,0 +1,8 @@
+
+mixin flash-messages(messages)
+  - if(messages.warning)
+    div
+      p= messages.warning 
+  - if(messages.info)
+    div 
+      p= messages.info
